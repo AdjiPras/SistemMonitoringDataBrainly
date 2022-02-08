@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  font-family: system-ui;
+  background-color: darkslategray;
+}
+form {
+  border: 2px solid darkslategray;
+  border-radius: 5px;
+  background-color: white;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-family: system-ui;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: black;
+}
+
+label {
+  font-family: system-ui;
+  font-size: 17px;
+  color: black;
+}
+button {
+  font-family: system-ui;
+  background-color: darkslategray;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+}
+
+button:hover {
+  opacity: 0.8;
+  font-family: system-ui;
+  background-color: white;
+  color: darkslategray;
+  border: 1px solid darkslategray;
+  border-radius: 10px;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  border-radius: 50%;
+
+}
+
+.container {
+  padding: 16px;
+}
+
+.judul {
+  font-family: system-ui;
+  font-size: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-family: system-ui;
+  text-align: center;
+  color: DarkSlateGray;
+  padding: 20px;
+}
+.log {
+  /*color: white;*/
+  font-family: system-ui;
+  font-size: 20px;
+  text-align: center;
+/*  border: #f1f1f1 solid 1px;
+  border-radius: 5px;
+  width: 120px;
+  margin-left: 190px;
+  padding: 5px;
+  background-color: #008B8B;*/
+}
+
+.foot {
+  /*color: white;*/
+  font-family: system-ui;
+  font-size: 15px;
+  text-align: center;
+/*  border: #f1f1f1 solid 1px;
+  border-radius: 5px;
+  width: 120px;
+  margin-left: 190px;
+  padding: 5px;
+  background-color: #008B8B;*/
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+#kotak_login{
+  margin:0 auto;
+  width:500px;
+}
+
+.alert {
+  background-color: #f44336;
+  color: white;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.close_ex {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close_ex:hover {
+  color: black;
+}
+</style>
+<title>Form Masuk</title>
+</head>
+<body>
+<header style="background-color: white; border-radius: 5px;">
+  <h2>Sistem Monitoring Brainly</h2>
+</header>
+<div id="kotak_login">
+<img src="{{ url_for('static', filename='dist/img/monitoring.png')}}" border="0" style="width: 400px; height: 230px; margin-left: 50px;">
+<form action="{{ url_for('login') }}" method="post">
+  <div class="container">
+  {% if msg %}
+    <div class="alert">
+      <span class="close_ex" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Gagal!</strong> Username atau password salah. Coba lagi.
+    </div>
+  {% endif %}
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Masukkan Username" name="username" required>
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Masukkan Password" name="password" required>
+    <button type="submit"><b>MASUK</b></button>
+  </div>
+</form>
+</div>
+</body>
+</html>

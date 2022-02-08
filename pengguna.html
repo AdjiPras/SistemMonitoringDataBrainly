@@ -1,0 +1,82 @@
+{% include 'header.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <h1 class="m-0">Data Pengguna</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Tabel Data Pengguna</h3><br><br>
+                <div>
+                  <a href="{{ url_for('insert_pengguna') }}" type="button" class="btn btn-success">Tambah Data Pengguna</a>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Username</th>
+                      <th>Password</th>
+                      <th>Tipe Pengguna</th>
+                      <th>Nama</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% set no=namespace(value=1) %}
+                    {% for row in container %}
+                    <tr>
+                      <td>{{ no.value }}</td>
+                      {% set no.value=no.value+1 %}
+                      <td>{{ row[1] }}</td>
+                      <td>{{ row[2] }}</td>
+                      <td>{{ row[3] }}</td>
+                      <td>{{ row[4] }}</td>
+                      {% if data_nama[2] == 0 %}
+                      <td>{{ row[5] }}<a href="{{ url_for('update_pengguna', pengguna_id = row[0]) }}" class="btn btn-warning" role="button">Ubah</a></td>
+                      <td>{{ row[6] }}<a href="{{ url_for('delete_pengguna', pengguna_id = row[0]) }}" class="btn btn-danger" role="button">Hapus</a></td>
+                      {% endif %}
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+              <!-- /.card-body -->
+              <!-- <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}

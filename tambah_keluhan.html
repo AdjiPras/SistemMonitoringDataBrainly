@@ -1,0 +1,68 @@
+{% include 'header.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Tambah Laporan Lain</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">Form Tambah Keluhan</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="{{ url_for('insert_keluhan') }}" method="POST">
+                <div class="card-body">
+                  <input type="hidden" name="no" class="form-control">
+                  <input type="hidden" name="username" value="{{ data_nama[1] }}" class="form-control">
+                  <div class="form-group">
+                    <label for="keluhan">Keluhan</label>
+                    <input type="text" name="keluhan" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="tanggal_lapor">Tanggal Lapor</label>
+                    <input type="datetime-local" name="tanggal_lapor" class="form-control">
+                  </div>
+                  {% if data_nama[2] == 0 %}
+                  <div class="form-group">
+                    <label for="tanggal_proses">Tanggal Proses</label>
+                    <input type="datetime-local" readonly="readonly" name="tanggal_proses" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="status">Status</label>
+                    <input type="text" readonly="readonly" name="status" class="form-control">
+                  </div>
+                  {% endif %}
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}

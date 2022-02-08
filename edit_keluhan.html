@@ -1,0 +1,76 @@
+{% include 'header.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Update Laporan</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">Form Update</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="{{ url_for('update_kl') }}" method="POST">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" readonly="readonly" class="form-control" id="username" name="username" value="{{ data_kl[1] }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="keluhan">Keluhan</label>
+                    <input type="text" readonly="readonly" class="form-control" id="keluhan" name="keluhan" value="{{ data_kl[2] }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="tanggal_lapor">Tanggal Lapor</label>
+                    <input type="datetime-local" readonly="readonly" class="form-control" id="tanggal_lapor" name="tanggal_lapor" value="{{ data_kl[3] }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="tanggal_proses">Tanggal Proses</label>
+                    <input type="datetime-local" class="form-control" id="tanggal_proses" name="tanggal_proses" value="{{ data_kl[4] }}">
+                  </div>
+                  <div class="form-group col-md-14">
+                    <label for="status">Status</label>
+                    <select id="status" class="form-control" name="status" value="{{ data_kl[5] }}">
+                      <option value=""></option>
+                      <option value="Diterima">Diterima</option>
+                      <option value="Proses">Proses</option>
+                      <option value="Selesai">Selesai</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="hidden" class="form-control" id="no" name="no" value="{{ data_kl[0] }}">
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}

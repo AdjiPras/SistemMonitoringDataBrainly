@@ -1,0 +1,73 @@
+{% include 'header.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12">
+            <h1 class="m-0">Data Profil Pengguna</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Tabel Riwayat Pengguna</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>URL</th>
+                      <th>Penjawab</th>
+                      <th>Terjawab</th>
+                      <th>Terverifikasi</th>
+                      <th>Mapel</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for row in container %}
+                    <tr>
+                      <td data-name="url" class="url" data-type="text" data-pk="{{row.id}}">{{row.url}}</td>
+                      <td data-name="penjawab" class="penjawab" data-type="text" data-pk="{{row.id}}">{{row.penjawab}}</td>
+                      <td data-name="terjawab" class="terjawab" data-type="text" data-pk="{{row.id}}">{{row.terjawab}}</td>
+                      <td data-name="terverifikasi" class="terverifikasi" data-type="text" data-pk="{{row.id}}">{{row.terverifikasi}}</td>
+                      <td data-name="mapel" class="mapel" data-type="text" data-pk="{{row.id}}">{{row.mapel}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+              <!-- /.card-body -->
+              <!-- <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}

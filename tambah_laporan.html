@@ -1,0 +1,83 @@
+{% include 'header.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Tambah Laporan</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">Form Tambah Laporan</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="{{ url_for('insert_laporan') }}" method="POST">
+                <div class="card-body">
+                  <input type="hidden" name="no" class="form-control">
+                  <input type="hidden" name="username" value="{{ data_nama[1] }}" class="form-control">
+                  <div class="form-group col-md-14">
+                    <label for="mata_pelajaran">Mata Pelajaran</label>
+                    <select id="mata_pelajaran" class="form-control" name="mata_pelajaran">
+                      <option value=""></option>
+                      <option value=" Bahasa Indonesia">Bahasa Indonesia</option>
+                      <option value=" Bahasa Inggris">Bahasa Inggris</option>
+                      <option value=" Biologi">Biologi</option>
+                      <option value=" Ekonomi">Ekonomi</option>
+                      <option value=" Fisika">Fisika</option>
+                      <option value=" Geografi">Geografi</option>
+                      <option value=" Kimia">Kimia</option>
+                      <option value=" Matematika">Matematika</option>
+                      <option value=" PPKN">PPKN</option>
+                      <option value=" Penjaskes">Penjaskes</option>
+                      <option value=" Sejarah">Sejarah</option>
+                      <option value=" Seni Budaya">Seni Budaya</option>
+                      <option value=" Sosiologi">Sosiologi</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="tanggal_lapor">Tanggal Lapor</label>
+                    <input type="datetime-local" name="tanggal_lapor" class="form-control">
+                  </div>
+                  {% if data_nama[2] == 0 %}
+                  <div class="form-group">
+                    <label for="tanggal_proses">Tanggal Proses</label>
+                    <input type="datetime-local" readonly="readonly" name="tanggal_proses" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="status">Status</label>
+                    <input type="text" readonly="readonly" name="status" class="form-control">
+                  </div>
+                  {% endif %}
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}
