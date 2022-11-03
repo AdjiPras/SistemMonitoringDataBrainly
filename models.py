@@ -29,29 +29,6 @@ class MModel:
 		count_account = (cursor.fetchone())[0]
 		self.closeDB()
 		return True if count_account>0 else False
-
-	# def getLoginForSession(self, username):
-	# 	self.openDB()
-	# 	cursor.execute("SELECT username, password, tipe_pengguna FROM data_pengguna WHERE username='%s'" % username)
-	# 	data_nama = cursor.fetchone()
-	# 	return data_nama
-# ==================================================================
-
-	# def selectMasterBarang(self):
-	# 	self.openDB()
-	# 	cursor.execute("SELECT id, nama, harga, satuan FROM `masterbarang`")
-	# 	con_barang = []
-	# 	for id, nama, harga, satuan in cursor.fetchall():
-	# 		con_barang.append((id, nama, harga, satuan))
-	# 	self.closeDB()
-	# 	return con_barang
-
-	# def insertMasterBarang(self, data_master_barang):
-	# 	self.openDB()
-	# 	cursor.execute("INSERT INTO masterbarang (nama, harga, satuan) VALUES('%s', '%s', '%s')" % data_master_barang)
-	# 	db.commit()
-	# 	self.closeDB()
-
 # ========================================= pengguna ============================================
 	# menampilkan data pengguna oleh admin.
 	def selectPengguna(self):

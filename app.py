@@ -13,6 +13,7 @@ from pymongo import MongoClient
 import pymongo
 import datetime
 import config2
+import config
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["brainlydb"]
@@ -217,7 +218,7 @@ def delete_pengguna(pengguna_id):
 @application.route('/data_soal')
 def data_soal():
 	if 'data_nama' in session:
-		current_time_date = today.strftime("%B %d, %Y")
+		# current_time_date = today.strftime("%B %d, %Y")
 		data_nama = session['data_nama']
 		if data_nama[2] == 0:
 			return render_template('index.html', data_nama=data_nama)
